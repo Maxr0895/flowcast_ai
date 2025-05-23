@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowRight, BarChart3, ChevronRight, Database, LineChart, PieChart } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { SignInButton } from "@clerk/nextjs"
 
 export default function Home() {
   return (
@@ -34,9 +35,11 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Login
-            </Link>
+            <SignInButton redirectUrl="/dashboard" signInUrl="/sign-in">
+              <Button variant="ghost" className="text-sm font-medium hover:underline underline-offset-4">
+                Login
+              </Button>
+            </SignInButton>
             <Button className="bg-teal-600 hover:bg-teal-700">Request a demo</Button>
           </div>
         </div>
