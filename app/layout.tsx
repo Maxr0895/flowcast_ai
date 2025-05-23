@@ -1,24 +1,25 @@
-import type { Metadata } from "next";
-import { ClerkProvider, SignInButton } from "@clerk/nextjs";
-import "./globals.css";
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Flowcast AI",
-  description: "Landing page",
-};
+  title: "FinanceFlow - Automated Financial Reporting & Dashboarding",
+  description:
+    "Transform your financial data into actionable insights with seamless integration to MYOB, Xero, and QuickBooks.",
+    generator: 'v0.dev'
+}
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
-  );
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
+    </html>
+  )
 }
